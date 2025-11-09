@@ -259,80 +259,119 @@ a {
     color: #fff
 }
 
-/* tablet */
-@media (max-width:1024px) {
-
-    .container {
-        max-width: 960px
-    }
-
-    .carousel {
-        height: 360px
-    }
-
-    .grid-2 {
-        grid-template-columns: 1fr
-    }
-
-    .hero {
-        grid-template-columns: 180px 1fr
-    }
-}
-
-/* mobile */
-@media (max-width:768px) {
-
-    .container {
-        max-width: 100%
-    }
-
-    .header__row {
-        gap: 8px
-    }
-
-    .brand {
-        font-size: 20px
-    }
-
-    .list {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr))
-    }
-
-    .carousel {
-        height: 240px
-    }
-
-    .hero {
-        grid-template-columns: 1fr
-    }
-
-    .checkout {
-        grid-template-columns: 1fr;
-    }
-
-    .checkout .form {
-        order: 1;
-    }
-
-    .checkout .summary {
-        order: 2;
-        position: static;
-    }
-
-    .pay-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer__row {
-        grid-template-columns: 1fr;
-        justify-items: start;
-        row-gap: 6px
-    }
-}
-
 @media (min-width:1280px) {
 
     .container {
         max-width: 1280px
+    }
+}
+
+@media (max-width: 768px) {
+    .header__row {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .container.main.grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .brand {
+        order: 0;
+    }
+
+    .search {
+        order: 1;
+        width: 100%;
+    }
+
+    .icons {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 4px 0;
+    }
+
+    .main.grid-2,
+    .container.main.grid-2,
+    main.container.main.grid.grid-2 {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .main.grid-2>*,
+    .container.main.grid-2>*,
+    main.container.main.grid.grid-2>* {
+        width: 100% !important;
+        margin: 0 0 12px !important;
+    }
+
+    #items>* {
+        display: grid !important;
+        grid-template-columns: 56px 1fr auto;
+        gap: 10px;
+        align-items: start;
+    }
+
+    #items img {
+        width: 56px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    #items>*> :not(img):not(:last-child) {
+        font-size: 14px;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+    }
+
+    #items>*> :last-child {
+        white-space: nowrap;
+        font-weight: 700;
+        justify-self: end;
+    }
+
+    #sum {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #place {
+        width: 100%;
+        min-height: 44px;
+    }
+}
+
+/* 4) Очень узкие экраны */
+@media (max-width: 420px) {
+    #items>* {
+        grid-template-columns: 44px 1fr;
+        grid-template-areas:
+            "img title"
+            "img price";
+    }
+
+    #items>* img {
+        grid-area: img;
+        width: 44px;
+        height: 60px;
+    }
+
+    #items>*> :not(img):not(:last-child) {
+        grid-area: title;
+    }
+
+    #items>*> :last-child {
+        grid-area: price;
     }
 }
