@@ -280,7 +280,7 @@ a {
 }
 
 /* mobile */
-@media (max-width:640px) {
+@media (max-width:768px) {
 
     .container {
         max-width: 100%
@@ -304,6 +304,23 @@ a {
 
     .hero {
         grid-template-columns: 1fr
+    }
+
+    .checkout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout .form {
+        order: 1;
+    }
+
+    .checkout .summary {
+        order: 2;
+        position: static;
+    }
+
+    .pay-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer__row {
